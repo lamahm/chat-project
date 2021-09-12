@@ -1,0 +1,58 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Chat App
+    link(rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.css')
+    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css' integrity='sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ' crossorigin='anonymous')
+    style.
+      body {
+      padding-top: 30px;
+      }
+      .card {
+      height: 400px
+      }
+      .card-header {
+      position: relative;
+      }
+      .btn-warning {
+      position: absolute;
+      }
+      #clear {
+      left: 234px;
+      top: 10px
+      }
+      #status {
+      color: green
+      }
+      #messages {
+      height: 200px;
+      overflow-y: scroll;
+      text-align: left
+      }
+  body
+    .container
+      .card.text-center
+        .card-header
+          h3 Chat App
+          button.btn.btn-warning(id='clear' type='submit') Clear
+          #status
+        .card-body.row.align-items-end
+          form(action='/' method='post' id='chat-form')
+            .form-row
+              .row.justify-content-md-center
+                .col-md-8.mb-3.align-items-end
+                  #messages.card-block
+                  .input-group.mb-3
+                    input#username.form-control(type='text' name='username' placeholder='username' required='')
+                    input#userMessage.form-control(type='text' name='message' placeholder='message' required='')
+                    .input-group-append
+                      button.btn.btn-primary(id='send' type='submit') Send
+        .card-footer.text-muted
+          | By Lama Hmood
+    script(src='bower_components/bootstrap/dist/js/bootstrap.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js')
+    script(src='http://localhost:8000/socket.io/socket.io.js')
+    script(src='static/main.js')
